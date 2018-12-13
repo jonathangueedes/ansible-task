@@ -1,6 +1,6 @@
 # ansible-task
 
-Simple Task
+Código refatorado
 
 utilizar passando como parametro o arquivo Hosts, example:
 
