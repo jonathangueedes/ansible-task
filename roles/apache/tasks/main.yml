@@ -1,0 +1,36 @@
+---
+    - name: instala pacotes Iniciais
+      ignore_errors: yes
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+          - epel-release
+          - php
+          - httpd
+          - centos-release-scl
+          - wget
+
+    - name: instala pacotes de dependencia
+      ignore_errors: yes
+      yum:
+        name: "{{ item }}"
+        state: present
+      with_items:
+          - mcrypt
+          - MySQL-python
+          - php-mysql
+          - rh-python36
+          - php-mbstring
+          - php-gd
+          - php-xml
+          - libssh2
+          - php-bcmath
+          - php-ldap
+          - python-pip
+
+    
+    - name: instalando modulo PYMYSQL via PIP
+      pip: 
+        name: PYMYSQL
+  

@@ -1,0 +1,32 @@
+---
+    - name: Install MySQL 5.7 repo
+      yum:
+        name: http://repo.mysql.com/yum/mysql-5.6-community/el/7/x86_64/mysql-community-release-el7-5.noarch.rpm
+        
+    
+    - name: instalando pacotes do banco de dados
+      yum: 
+          name: "{{ item }}"
+          update_cache: yes
+      with_items:
+          - mysql-community-server
+          - mysql-community-devel
+      notify: 
+          - restart mysqld
+
+    - name: Starting MySQL
+      shell: service mysql start
+
+
+    - name: crindo banco de dados
+      mysql_db:
+          name: "{{ db_name }}"
+          state: present
+
+
+    - name: 'Cria o usuário do MySQL'
+      mysql_user:
+        name: "{{db_user_name }}"
+        password: "{{ db_password }}"
+        priv: '*.*:ALL,GRANT'
+        state: present
