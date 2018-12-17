@@ -31,6 +31,8 @@
           state: import
           target: /usr/share/doc/zabbix-server-mysql-{{ zabbix_mysql_version }}/create.sql
       ignore_errors: yes
-      notify: start zabbix server
+      notify: 
+          - start zabbix server
+          - restart apache
 
   
