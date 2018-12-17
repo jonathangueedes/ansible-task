@@ -33,9 +33,4 @@
       ignore_errors: yes
       notify: start zabbix server
 
-    - name: Alterando o datetime zone do php
-      replace:
-        path: /etc/php.ini
-        regexp: ";date.timezone ="
-        replace: "date.timezone = America/Sao_Paulo"
-      notify: restart apache
+  

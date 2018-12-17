@@ -9,3 +9,4 @@
     service:
       name: mysqld
       state: started
+    become: true

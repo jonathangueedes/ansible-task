@@ -34,3 +34,14 @@
       pip: 
         name: PYMYSQL
   
+
+
+    - name: Aplicando template do PHP
+      template: 
+        src: templates/php.ini.j2
+        dest: /etc/php.ini
+      
+    - name: Starting apache
+      service: 
+        name: httpd
+        state: started

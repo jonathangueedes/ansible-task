@@ -12,10 +12,10 @@
           - mysql-community-server
           - mysql-community-devel
       notify: 
-          - restart mysqld
-
-    - name: Starting MySQL
-      shell: service mysql start
+          - start mysqld
+      
+    - name: starting mysql 
+      meta: flush_handlers
 
 
     - name: crindo banco de dados
