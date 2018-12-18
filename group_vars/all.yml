@@ -1,6 +1,0 @@
----
-db_password: zabbix
-db_user_name: zabbix
-db_name: zabbix
-zabbix_mysql_version: '3.4.15'
-php_timezone: America/Sao_Paulo
