@@ -1,4 +1,8 @@
 ---
+    - name: Disable SELinux
+      selinux:
+        state: disabled
+    
     - name: instala pacotes Iniciais
       ignore_errors: yes
       yum:

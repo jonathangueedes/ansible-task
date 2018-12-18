@@ -31,6 +31,11 @@
           state: import
           target: /usr/share/doc/zabbix-server-mysql-{{ zabbix_mysql_version }}/create.sql
       ignore_errors: yes
+
+    - name: Aplicando template de Conf do zabbix
+      template: 
+        src: templates/zabbix_server.conf.j2
+        dest: /etc/zabbix/zabbix_server.conf
       notify: 
           - start zabbix server
           - restart apache
